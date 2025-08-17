@@ -36,7 +36,7 @@ export default function SharedLayout() {
       </AnimatePresence>
       <AnimatePresence>
         {activeGame ? (
-          <div className="absolute inset-0 z-10 grid place-items-center">
+          <div className="absolute inset-0 z-10 grid place-items-center p-5">
             <motion.div
               layoutId={`card-${activeGame.title}`}
               className="not-dark:shadow-lg dark:inset-ring-1 dark:inset-ring-neutral-800 flex h-fit w-full max-w-lg flex-col items-start gap-4 overflow-clip bg-white p-4 dark:bg-neutral-900"
@@ -76,9 +76,9 @@ export default function SharedLayout() {
                 </div>
               </div>
               <motion.p
-                // layout
+                layout
                 initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
+                animate={{ opacity: 1, transition: { delay: 0.2 } }}
                 exit={{ opacity: 0, transition: { duration: 0.05 } }}
                 className="text-sm text-neutral-500"
               >
