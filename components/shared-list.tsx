@@ -30,13 +30,13 @@ export default function SharedLayout() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="absolute inset-0 z-10 bg-black/20 dark:bg-black/60"
+            className="backdrop-blur-xs absolute inset-0 z-10 bg-black/20"
           />
         ) : null}
       </AnimatePresence>
       <AnimatePresence>
         {activeGame ? (
-          <div className="absolute inset-0 z-10 grid place-items-center p-5">
+          <div className="absolute inset-0 z-10 grid place-items-center p-2.5">
             <motion.div
               layoutId={`card-${activeGame.title}`}
               className="not-dark:shadow-lg dark:inset-ring-1 dark:inset-ring-neutral-800 flex h-fit w-full max-w-lg flex-col items-start gap-4 overflow-clip bg-white p-4 dark:bg-neutral-900"
@@ -88,14 +88,14 @@ export default function SharedLayout() {
           </div>
         ) : null}
       </AnimatePresence>
-      <ul className="relative my-12 flex w-full flex-col items-center">
+      <ul className="relative flex flex-col">
         {GAMES.map((game) => (
           <motion.li
             layoutId={`card-${game.title}`}
             key={game.title}
             onClick={() => setActiveGame(game)}
             style={{ borderRadius: 8 }}
-            className="group flex w-full max-w-sm cursor-pointer items-center gap-4"
+            className="group flex cursor-pointer items-center gap-4"
           >
             <MotionImage
               layoutId={`image-${game.title}`}
@@ -105,7 +105,8 @@ export default function SharedLayout() {
               src={game.image}
               style={{ borderRadius: 12 }}
             />
-            <div className="group-not-last-of-type:border-b flex grow items-center justify-between border-neutral-200 dark:border-neutral-800">
+            <div className="relative flex grow items-center justify-between">
+              <div className="group-not-last-of-type:h-px absolute inset-x-0 bottom-0 bg-neutral-200 dark:bg-neutral-800" />
               <div className="flex flex-col py-4">
                 <motion.h2
                   layoutId={`title-${game.title}`}
