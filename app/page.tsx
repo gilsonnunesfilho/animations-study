@@ -1,8 +1,8 @@
-import SharedLayout from "@/components/shared-list"
+import COVER_IMG from "@/app/image.png"
+import { SharedList } from "@/components/shared-list"
 import Image from "next/image"
-import COVER_IMG from "./image.png"
 
-export default function Home() {
+export default function Page() {
   return (
     <div className="grid min-h-svh grid-rows-[1fr_auto] items-center md:grid-cols-[1fr_2fr] md:grid-rows-1">
       <Image
@@ -15,7 +15,7 @@ export default function Home() {
         <h2 className="mb-2.5 border-b border-neutral-200 py-2.5 text-2xl font-bold dark:border-neutral-800">
           Top Picks
         </h2>
-        <SharedLayout />
+        <SharedList />
       </div>
     </div>
   )
